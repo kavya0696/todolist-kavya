@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container center">
+  <h1>Ready to organize your day?</h1>
+  <p>Welcome—plan, track, and finish</p>
+
+  <button onclick="goToTodo('all')">📋 View Entire To-Do List</button>
+  <button onclick="goToTodo('pending')">⏳ View Pending Tasks</button>
+  <button onclick="goToTodo('completed')">✅ View Completed Tasks</button>
+  <button onclick="startNew()">🆕 Start New To-Do List</button>
+</div>
+
+<script>
+  function goToTodo(filter) {
+    window.location.href = `todo.html?filter=${filter}`;
+  }
+
+  function startNew() {
+    localStorage.removeItem("tasks");
+    window.location.href = "todo.html?filter=all";
+  }
+</script>
+
+</body>
+</html>
